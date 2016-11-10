@@ -1,15 +1,17 @@
-var Twitter = require('twitter');
+require('dotenv').config()
+const _ = require('lodash')
+const Twit = require('twit')
+const T = new Twit({
+  consumer_key: process.env.TWITTER_CONSUMER_KEY,
+  consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+  access_token: process.env.TWITTER_ACCESS_TOKEN_KEY,
+  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
+})
 
-var client = new Twitter({
-  consumer_key: '',
-  consumer_secret: '',
-  access_token_key: '',
-  access_token_secret: ''
-});
+// function getSampleTweets (keyword) {
+//   T.get('search/tweets', { q: 'Trump', count: 10 }, function (err, data, response) {
+//     console.log(data)
+//   })
+// }
 
-var params = {screen_name: 'nodejs'};
-client.get('statuses/user_timeline', params, function(error, tweets, response) {
-  if (!error) {
-    console.log(tweets);
-  }
-});
+module.exports = getSampleTweets
