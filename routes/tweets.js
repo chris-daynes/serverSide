@@ -1,8 +1,8 @@
-var express = require('express');
-var router = express.Router();
+var express = require('express')
+var router = express.Router()
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   res.json({tweets: [{
     date: '09-11-2016',
     city: 'Atlanta',
@@ -10,4 +10,4 @@ router.get('/', function(req, res, next) {
   })
 })
 
-module.exports = router;
+module.exports = router
