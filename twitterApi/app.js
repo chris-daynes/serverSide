@@ -9,7 +9,7 @@ const T = new Twit({
 })
 
 function getSampleTweets (keyword) {
-  T.get('search/tweets', { q: keyword, count: 2 }, function (err, data, response) {
+  T.get('search/tweets', { q: keyword, count: 10 }, function (err, data, response) {
     let statuses = data.statuses.map((tweet) => {
       return {date: tweet.created_at,
               text: tweet.text,
@@ -22,7 +22,6 @@ function getSampleTweets (keyword) {
   })
 }
 
-getSampleTweets('trump')
 getSampleTweets('hillary')
 
 module.exports = getSampleTweets
