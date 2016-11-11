@@ -4,10 +4,10 @@ var router = express.Router()
 var getTweets = require('../db/tweets-db')
 
 /* GET users listing. */
-router.get('/', function(req, res) {
+router.get('/', (req, res) => {
   res.status(200)
   getTweets()
-    .then(function (tweets) {
+    .then((tweets) => {
       console.log(tweets)
       res.json({tweets})
     })

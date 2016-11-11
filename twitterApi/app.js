@@ -8,10 +8,21 @@ const T = new Twit({
   access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 })
 
-// function getSampleTweets (keyword) {
-//   T.get('search/tweets', { q: 'Trump', count: 10 }, function (err, data, response) {
-//     console.log(data)
-//   })
-// }
+function getSampleTweets (keyword) {
+  T.get('search/tweets', { q: keyword, count: 2 }, function (err, data, response) {
+    let statuses = data.statuses.map((tweet) => {
+      return {date: tweet.created_at,
+              text: tweet.text,
+              author: tweet.user.screen_name,
+              city: tweet.user.location,
+              subject: keyword
+            }
+    })
+    console.log(statuses)
+  })
+}
+
+getSampleTweets('trump')
+getSampleTweets('hillary')
 
 module.exports = getSampleTweets
